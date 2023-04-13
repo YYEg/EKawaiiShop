@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "25988125872",
+    "project_id": "ekawaiibd",
+    "storage_bucket": "ekawaiibd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:25988125872:android:8f6ce16d3695b8987c1775",
+        "android_client_info": {
+          "package_name": "com.yy.ekawaiishop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "25988125872-qb7pqvvc4134b0hnmg1qt7spp0h3invt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1vaWOklbfD78uPaDSY5cDngZhIhe_plE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "25988125872-qb7pqvvc4134b0hnmg1qt7spp0h3invt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
