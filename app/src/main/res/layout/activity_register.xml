@@ -22,13 +22,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="fitXY"
-                app:srcCompat="@drawable/top_login" />
+                app:srcCompat="@drawable/top_signup" />
 
             <TextView
                 android:id="@+id/textViewLoginPageTxtLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Login"
+                android:text="Sign up"
                 android:textAlignment="center"
                 android:textColor="#BC0202"
                 android:textSize="40sp"
@@ -43,7 +43,40 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textViewLoginLogin"
+                    android:id="@+id/textViewRegisterPageName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="#BC0202"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/editTextRegisterPageName"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/background_edit_text"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="Enter your name"
+                    android:inputType="textEmailAddress"
+                    android:textAlignment="center"
+                    android:textColor="#707070"
+                    android:textColorHint="#707070"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="30dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewRegisterPageEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Email address"
@@ -51,7 +84,7 @@
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/editTextLoginPageEmail"
+                    android:id="@+id/editTextRegisterPageEmail"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="8dp"
@@ -76,7 +109,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textViewLoginPassword"
+                    android:id="@+id/textViewRegisterPagePassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Password"
@@ -84,11 +117,11 @@
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/editTextLoginPagePassword"
+                    android:id="@+id/editTextRegisterPagePassword"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="8dp"
-                    android:layout_below="@id/textViewLoginPassword"
+                    android:layout_below="@id/textViewRegisterPagePassword"
                     android:background="@drawable/background_edit_text"
                     android:ems="10"
                     android:gravity="center"
@@ -103,13 +136,13 @@
                     android:id="@+id/imageView_show_hide_pwd"
                     android:layout_width="33dp"
                     android:layout_height="33dp"
-                    android:layout_alignTop="@+id/editTextLoginPagePassword"
+                    android:layout_below="@+id/textViewRegisterPagePassword"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginTop="9dp"
-                    android:layout_marginEnd="22dp"
-                    android:layout_marginRight="22dp"
-                    android:layout_marginBottom="8dp"/>
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="19dp"
+                    android:layout_marginRight="19dp"
+                    android:layout_marginBottom="8dp" />
 
             </RelativeLayout>
 
@@ -117,12 +150,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginEnd="30dp"
                 android:orientation="horizontal">
 
                 <View
-                    android:id="@+id/viewLoginOne"
+                    android:id="@+id/viewRegisterOne"
                     android:layout_width="wrap_content"
                     android:layout_height="1dp"
                     android:layout_gravity="center_vertical"
@@ -130,14 +163,14 @@
                     android:background="#707070" />
 
                 <TextView
-                    android:id="@+id/textViewLoginOr"
+                    android:id="@+id/textViewRegisterOr"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
                     android:text="OR" />
 
                 <View
-                    android:id="@+id/viewLoginTwo"
+                    android:id="@+id/viewRegisterTwo"
                     android:layout_width="wrap_content"
                     android:layout_height="1dp"
                     android:layout_gravity="center_vertical"
@@ -153,55 +186,29 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageViewLoginGoogle"
+                    android:id="@+id/imageViewRegisterGoogle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/google" />
 
                 <ImageView
-                    android:id="@+id/imageViewLoginVK"
+                    android:id="@+id/imageViewRegisterVK"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/vkontakte" />
 
                 <ImageView
-                    android:id="@+id/imageViewLoginMailru"
+                    android:id="@+id/imageViewRegisterMailru"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/mailru" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/textViewLoginDontHave"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="30dp"
-                android:gravity="center_horizontal"
-                android:text="Don't have an account?"
-                android:textAlignment="center"
-                android:textColor="#000000"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/textViewLoginSignUp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="30dp"
-                android:gravity="center_horizontal"
-                android:text="SignUp"
-                android:textAlignment="center"
-                android:textColor="#000000"
-                android:textSize="15sp" />
-
             <Button
-                android:id="@+id/btnLoginLogin"
+                android:id="@+id/btnRegisterPageRegister"
                 style="@android:style/Widget.Button"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -211,7 +218,7 @@
 
                 android:background="@drawable/background_btn"
                 android:gravity="center"
-                android:text="Login"
+                android:text="Sign up"
                 android:textSize="18dp"
                 android:textStyle="bold" />
 
