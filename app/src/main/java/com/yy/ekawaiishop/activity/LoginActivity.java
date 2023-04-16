@@ -22,6 +22,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.yy.ekawaiishop.R;
+import com.yy.ekawaiishop.fragments.HomeFragment;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -83,8 +84,9 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
-                    Intent UserProfileActivity = new Intent(LoginActivity.this, OnBoardingActivity.class);
+                    Intent UserProfileActivity = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(UserProfileActivity);
+                    finish();
                 } else{
                     try {
                         throw task.getException();

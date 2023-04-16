@@ -1,6 +1,9 @@
 package com.yy.ekawaiishop.activity;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,29 +13,23 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.yy.ekawaiishop.R;
+import com.yy.ekawaiishop.fragments.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
+    Fragment homeFragment;
 
-    private ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start_app);
+        setContentView(R.layout.activity_main);
 
-        progressBar = findViewById(R.id.progressBar);
+        homeFragment = new HomeFragment();
+        loadFragment(homeFragment);
+    }
 
-        //Кнопка старт
-        Button btnStart = findViewById(R.id.btnStartPageStart);
-        btnStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                progressBar.setVisibility(View.VISIBLE);
-                Toast.makeText(MainActivity.this, "Welcome!", Toast.LENGTH_SHORT).show();
-                Intent LoginActivity = new Intent(MainActivity.this, com.yy.ekawaiishop.activity.LoginActivity.class);
-                startActivity(LoginActivity);
-                progressBar.setVisibility(View.GONE);
-            }
-        });
-
+    private void loadFragment(Fragment homeFragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.home_container, homeFragment);
+        transaction.commit();
     }
 }
