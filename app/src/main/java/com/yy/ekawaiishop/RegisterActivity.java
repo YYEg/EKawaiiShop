@@ -114,7 +114,7 @@ public class RegisterActivity extends AppCompatActivity {
                         firebaseUser.updateProfile(profileUpdates);
                         Toast.makeText(RegisterActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
                         //open userprofileacivity after user is created
-                        Intent UserProfileActivity = new Intent(RegisterActivity.this, UserProfileActivity.class);
+                        Intent UserProfileActivity = new Intent(RegisterActivity.this, OnBoardingActivity.class);
 
                         //Stop user from going back to Register Activity on pressing back button
                         UserProfileActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
