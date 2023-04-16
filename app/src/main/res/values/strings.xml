@@ -5,4 +5,6 @@
     <string name="second_slide">Fast delivery</string>
     <string name="third_slide">Low prices</string>
     <string name="description">So what are you waiting for? Start exploring our online store today and discover the endless possibilities that await you. From fashion to electronics, we have everything you need to elevate your lifestyle and make every moment count. Shop now and experience the ultimate convenience of online shopping!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

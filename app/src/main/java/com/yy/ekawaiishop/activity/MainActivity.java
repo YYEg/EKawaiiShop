@@ -1,4 +1,4 @@
-package com.yy.ekawaiishop;
+package com.yy.ekawaiishop.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import com.yy.ekawaiishop.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 progressBar.setVisibility(View.VISIBLE);
                 Toast.makeText(MainActivity.this, "Welcome!", Toast.LENGTH_SHORT).show();
-                Intent LoginActivity = new Intent(MainActivity.this, LoginActivity.class);
+                Intent LoginActivity = new Intent(MainActivity.this, com.yy.ekawaiishop.activity.LoginActivity.class);
                 startActivity(LoginActivity);
                 progressBar.setVisibility(View.GONE);
             }

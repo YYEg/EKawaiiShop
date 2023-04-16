@@ -1,4 +1,4 @@
-package com.yy.ekawaiishop;
+package com.yy.ekawaiishop.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +22,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.yy.ekawaiishop.R;
 
 public class RegisterActivity extends AppCompatActivity {
 
