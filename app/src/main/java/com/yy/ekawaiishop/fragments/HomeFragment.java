@@ -3,6 +3,7 @@ package com.yy.ekawaiishop.fragments;
 import static android.content.ContentValues.TAG;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.denzcoskun.imageslider.ImageSlider;
@@ -28,6 +30,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.yy.ekawaiishop.R;
+import com.yy.ekawaiishop.activity.ShowAllActivity;
 import com.yy.ekawaiishop.adapters.CategoryAdapter;
 import com.yy.ekawaiishop.adapters.NewProductAdapter;
 import com.yy.ekawaiishop.adapters.PopularProductAdapter;
@@ -41,6 +44,8 @@ import java.util.List;
 
 public class HomeFragment extends Fragment {
 
+
+    TextView catShowAll, popularShowAll, newShowAll;
 
     LinearLayout linearLayout;
     ProgressDialog progressDialog;
@@ -70,13 +75,38 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
+        db = FirebaseFirestore.getInstance();
+
         progressDialog = new ProgressDialog(getActivity());
         catRecyclerview = root.findViewById(R.id.rec_category);
         newProductRecycleview = root.findViewById(R.id.new_product_rec);
         popularRecycleview = root.findViewById(R.id.popular_rec);
 
+        catShowAll = root.findViewById(R.id.category_see_all);
+        newShowAll = root.findViewById(R.id.newProducts_see_all);
+        popularShowAll = root.findViewById(R.id.popular_see_all);
 
-        db = FirebaseFirestore.getInstance();
+        catShowAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), ShowAllActivity.class);
+                startActivity(intent);
+            }
+        });
+        newShowAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), ShowAllActivity.class);
+                startActivity(intent);
+            }
+        });
+        popularShowAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), ShowAllActivity.class);
+                startActivity(intent);
+            }
+        });
 
         linearLayout = root.findViewById(R.id.home_layout);
         linearLayout.setVisibility(View.GONE);
