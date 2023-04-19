@@ -1,6 +1,8 @@
 package com.yy.ekawaiishop.models;
 
-public class PopularProductModel {
+import java.io.Serializable;
+
+public class PopularProductModel implements Serializable {
     String description;
     String name;
     String rating;
