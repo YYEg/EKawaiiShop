@@ -114,9 +114,9 @@ public class HomeFragment extends Fragment {
         ImageSlider imageSlider = root.findViewById(R.id.image_slider);
         List<SlideModel> slideModels = new ArrayList<>();
 
-        slideModels.add(new SlideModel(R.drawable.banner1,"Discount on Shoes Items", ScaleTypes.CENTER_CROP));
-        slideModels.add(new SlideModel(R.drawable.banner2,"Discount on Perfume", ScaleTypes.CENTER_CROP));
-        slideModels.add(new SlideModel(R.drawable.banner3,"70% off", ScaleTypes.CENTER_CROP));
+        slideModels.add(new SlideModel(R.drawable.banner1,"A lot of coupons!", ScaleTypes.CENTER_CROP));
+        slideModels.add(new SlideModel(R.drawable.banner2jpn,"Japan sales", ScaleTypes.CENTER_CROP));
+        slideModels.add(new SlideModel(R.drawable.lunar,"80% off", ScaleTypes.CENTER_CROP));
 
         imageSlider.setImageList(slideModels);
 
