@@ -12,6 +12,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.yy.ekawaiishop.R;
 import com.yy.ekawaiishop.models.NewProductModel;
 import com.yy.ekawaiishop.models.PopularProductModel;
+import com.yy.ekawaiishop.models.ShowAllModel;
 
 public class DetailedActivity extends AppCompatActivity {
 
@@ -25,6 +26,9 @@ public class DetailedActivity extends AppCompatActivity {
 
     //Popular Products
     PopularProductModel popularProductModel = null;
+
+    //ShowAll products
+    ShowAllModel showAllModel = null;
 
     private FirebaseFirestore firestore;
 
@@ -41,6 +45,8 @@ public class DetailedActivity extends AppCompatActivity {
             newProductsModel = (NewProductModel) obj;
         } else if(obj instanceof PopularProductModel){
             popularProductModel = (PopularProductModel) obj;
+        } else if(obj instanceof ShowAllModel){
+            showAllModel = (ShowAllModel) obj;
         }
 
         detailedImg = findViewById(R.id.detailed_img);
@@ -73,6 +79,16 @@ public class DetailedActivity extends AppCompatActivity {
             description.setText(popularProductModel.getDescription());
             rating.setText(popularProductModel.getRating());
             price.setText(String.valueOf(popularProductModel.getPrice()));
+
+        }
+
+        //Showall Products
+        if(showAllModel != null){
+            Glide.with(getApplicationContext()).load(showAllModel.getImg_url()).into(detailedImg);
+            name.setText(showAllModel.getName());
+            description.setText(showAllModel.getDescription());
+            rating.setText(showAllModel.getRating());
+            price.setText(String.valueOf(showAllModel.getPrice()));
 
         }
     }
