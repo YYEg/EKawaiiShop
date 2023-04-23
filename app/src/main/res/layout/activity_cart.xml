@@ -19,7 +19,7 @@
         android:theme="?attr/actionBarTheme"/>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txtV3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -42,7 +42,7 @@
         app:layout_constraintBottom_toTopOf="@+id/buy_now"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/txtV3"
         app:layout_constraintWidth_percent=".9"
         tools:listitem="@layout/my_cart_item" />
 

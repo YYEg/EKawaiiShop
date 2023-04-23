@@ -1,12 +1,14 @@
 package com.yy.ekawaiishop.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.yy.ekawaiishop.R;
@@ -17,6 +19,7 @@ import java.util.List;
 public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder> {
     Context context;
     List<MyCartModel> myCartModelList;
+    int totalAmount = 0;
 
     public MyCartAdapter(Context context, List<MyCartModel> myCartModelList) {
         this.context = context;
@@ -39,6 +42,13 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
         holder.name.setText(myCartModelList.get(position).getProductName());
         holder.totalPrice.setText(String.valueOf(myCartModelList.get(position).getTotalPrice()));
         holder.totalQuantity.setText(myCartModelList.get(position).getTotalQuantity());
+
+        //Total amount pass to Cart activity
+        totalAmount = totalAmount + myCartModelList.get(position).getTotalPrice();
+        Intent intent = new Intent("MyTotalAmount");
+        intent.putExtra("totalAmount", totalAmount);
+
+        LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
 
     }
 
