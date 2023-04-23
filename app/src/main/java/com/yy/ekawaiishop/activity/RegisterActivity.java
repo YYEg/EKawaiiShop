@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
@@ -29,6 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText editTextRegisterEmail, editTextRegisterName, editTextRegisterPassword;
     private ProgressBar progressBar;
     private FirebaseAuth auth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

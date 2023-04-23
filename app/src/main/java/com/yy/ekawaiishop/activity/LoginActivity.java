@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
@@ -29,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextLoginEmail, editTextLoginPassword;
     private ProgressBar progressBar;
     private FirebaseAuth auth;
-
+    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +38,8 @@ public class LoginActivity extends AppCompatActivity {
 
         findViews();
         showHidePassword();
+        sharedPreferences = getSharedPreferences("OnBoardingScreen", MODE_PRIVATE);
+
 
         TextView textViewRegister = findViewById(R.id.textViewLoginSignUp);
         textViewRegister.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +79,19 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+        boolean isFirstTime = sharedPreferences.getBoolean("firstTime", true);
+
+        if (isFirstTime){
+
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean("firstTime", false);
+            editor.commit();
+
+            Intent intent = new Intent(LoginActivity.this, OnBoardingActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     private void loginUser(String textEmail, String textPwd) {
