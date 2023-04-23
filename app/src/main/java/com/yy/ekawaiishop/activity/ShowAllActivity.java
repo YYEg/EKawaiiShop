@@ -83,10 +83,12 @@ public class ShowAllActivity extends AppCompatActivity {
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            for (DocumentSnapshot doc :task.getResult().getDocuments()){
-                                ShowAllModel showAllModel = doc.toObject(ShowAllModel.class);
-                                showAllModelList.add(showAllModel);
-                                showAllAdapter.notifyDataSetChanged();
+                            if (task.isSuccessful()){
+                                for (DocumentSnapshot doc :task.getResult().getDocuments()){
+                                    ShowAllModel showAllModel = doc.toObject(ShowAllModel.class);
+                                    showAllModelList.add(showAllModel);
+                                    showAllAdapter.notifyDataSetChanged();
+                                }
                             }
                         }
                     });
@@ -97,10 +99,12 @@ public class ShowAllActivity extends AppCompatActivity {
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            for (DocumentSnapshot doc :task.getResult().getDocuments()){
-                                ShowAllModel showAllModel = doc.toObject(ShowAllModel.class);
-                                showAllModelList.add(showAllModel);
-                                showAllAdapter.notifyDataSetChanged();
+                            if (task.isSuccessful()){
+                                for (DocumentSnapshot doc :task.getResult().getDocuments()){
+                                    ShowAllModel showAllModel = doc.toObject(ShowAllModel.class);
+                                    showAllModelList.add(showAllModel);
+                                    showAllAdapter.notifyDataSetChanged();
+                                }
                             }
                         }
                     });
@@ -111,10 +115,12 @@ public class ShowAllActivity extends AppCompatActivity {
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            for (DocumentSnapshot doc :task.getResult().getDocuments()){
-                                ShowAllModel showAllModel = doc.toObject(ShowAllModel.class);
-                                showAllModelList.add(showAllModel);
-                                showAllAdapter.notifyDataSetChanged();
+                            if (task.isSuccessful()){
+                                for (DocumentSnapshot doc :task.getResult().getDocuments()){
+                                    ShowAllModel showAllModel = doc.toObject(ShowAllModel.class);
+                                    showAllModelList.add(showAllModel);
+                                    showAllAdapter.notifyDataSetChanged();
+                                }
                             }
                         }
                     });
