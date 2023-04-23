@@ -52,6 +52,19 @@ public class LoginActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
+        /*boolean isFirstTime = sharedPreferences.getBoolean("firstTime", true);
+
+        if (isFirstTime){
+
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean("firstTime", false);
+            editor.commit();
+
+            Intent intent = new Intent(LoginActivity.this, OnBoardingActivity.class);
+            startActivity(intent);
+            finish();
+        }*/
+
         //пользователь логиниться
         Button buttonLogin = findViewById(R.id.btnLoginLogin);
         buttonLogin.setOnClickListener(new View.OnClickListener() {
@@ -80,18 +93,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        boolean isFirstTime = sharedPreferences.getBoolean("firstTime", true);
 
-        if (isFirstTime){
-
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putBoolean("firstTime", false);
-            editor.commit();
-
-            Intent intent = new Intent(LoginActivity.this, OnBoardingActivity.class);
-            startActivity(intent);
-            finish();
-        }
     }
 
     private void loginUser(String textEmail, String textPwd) {
