@@ -12,7 +12,7 @@
         android:theme="@style/Theme.EKawaiiShop"
         tools:targetApi="31">
         <activity
-            android:name=".PaymentActivity"
+            android:name=".activity.PaymentActivity"
             android:exported="false" />
         <activity
             android:name=".activity.AddAddressActivity"

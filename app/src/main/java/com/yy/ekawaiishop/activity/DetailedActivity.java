@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.yy.ekawaiishop.R;
+import com.yy.ekawaiishop.models.AddressModel;
 import com.yy.ekawaiishop.models.NewProductModel;
 import com.yy.ekawaiishop.models.PopularProductModel;
 import com.yy.ekawaiishop.models.ShowAllModel;
@@ -62,6 +63,12 @@ public class DetailedActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.detailed_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
 
         final Object obj = getIntent().getSerializableExtra("detailed");
@@ -125,7 +132,17 @@ public class DetailedActivity extends AppCompatActivity {
         buyNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DetailedActivity.this, AddressActivity.class));
+                Intent intent = new Intent(DetailedActivity.this, AddressActivity.class);
+                if (newProductsModel != null){
+                    intent.putExtra("item", newProductsModel);
+                }
+                if (popularProductModel != null){
+                    intent.putExtra("item", popularProductModel);
+                }
+                if (showAllModel != null){
+                    intent.putExtra("item", showAllModel);
+                }
+                startActivity(intent);
             }
         });
 

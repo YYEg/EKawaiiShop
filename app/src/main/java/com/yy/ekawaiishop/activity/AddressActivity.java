@@ -21,6 +21,9 @@ import com.yy.ekawaiishop.R;
 import com.yy.ekawaiishop.adapters.AddressAdapter;
 import com.yy.ekawaiishop.models.AddressModel;
 import com.yy.ekawaiishop.models.MyCartModel;
+import com.yy.ekawaiishop.models.NewProductModel;
+import com.yy.ekawaiishop.models.PopularProductModel;
+import com.yy.ekawaiishop.models.ShowAllModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +47,15 @@ public class AddressActivity extends AppCompatActivity implements AddressAdapter
         toolbar = findViewById(R.id.address_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        //get Data from detailed activity
+        Object obj = getIntent().getSerializableExtra("item");
 
         firestore = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
@@ -74,7 +86,22 @@ public class AddressActivity extends AppCompatActivity implements AddressAdapter
         paymentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AddressActivity.this, PaymentActivity.class));
+                double amount = 0.0;
+                if (obj instanceof NewProductModel){
+                    NewProductModel newProductModel = (NewProductModel) obj;
+                    amount = newProductModel.getPrice();
+                }
+                if (obj instanceof PopularProductModel){
+                    PopularProductModel popularProductModel = (PopularProductModel) obj;
+                    amount = popularProductModel.getPrice();
+                }
+                if (obj instanceof ShowAllModel){
+                    ShowAllModel showAllModel = (ShowAllModel) obj;
+                    amount = showAllModel.getPrice();
+                }
+                Intent intent = new Intent(AddressActivity.this, PaymentActivity.class);
+                intent.putExtra("amount", amount);
+                startActivity(intent);
             }
         });
 

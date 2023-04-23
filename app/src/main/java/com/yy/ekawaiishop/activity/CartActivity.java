@@ -12,6 +12,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -37,6 +39,7 @@ public class CartActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     List<MyCartModel> myCartModelList;
     MyCartAdapter myCartAdapter;
+    Button buyNowButton;
     private FirebaseAuth auth;
     private FirebaseFirestore firestore;
 
@@ -51,6 +54,19 @@ public class CartActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.my_cart_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         //get data from my cart adapter
         LocalBroadcastManager.getInstance(this)
@@ -69,13 +85,28 @@ public class CartActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()){
                             for (DocumentSnapshot doc :task.getResult().getDocuments()){
+
+                                String documentId = doc.getId();
+
                                 MyCartModel myCartModel = doc.toObject(MyCartModel.class);
+                                myCartModel.setDocumentId(documentId);
                                 myCartModelList.add(myCartModel);
                                 myCartAdapter.notifyDataSetChanged();
                             }
                         }
                     }
                 });
+        buyNowButton = findViewById(R.id.buy_now);
+        buyNowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CartActivity.this, PaymentActivity.class);
+                double amount = 0.0;
+                amount = (double) overAllTotalAmount;
+                intent.putExtra("amount", amount);
+                startActivity(intent);
+            }
+        });
 
     }
     public BroadcastReceiver mMessageReciver = new BroadcastReceiver() {
@@ -84,6 +115,7 @@ public class CartActivity extends AppCompatActivity {
 
             int totalBill = intent.getIntExtra("totalAmount", 0);
             overAllAmount.setText("Total Amount :"+totalBill+"$");
+            overAllTotalAmount = totalBill;
         }
     };
 
